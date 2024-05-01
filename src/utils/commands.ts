@@ -98,7 +98,10 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
 ██ ████ ██ ██    ██ ███████    ██    ███████   ███       ███████ ██          █████   ███████ ███████ ██      ██   ██ ██ 
 ██  ██  ██ ██    ██ ██   ██    ██    ██   ██  ███        ██   ██ ██          ██  ██  ██   ██ ██   ██ ██      ██   ██ ██ 
 ██      ██  ██████  ██   ██    ██    ██   ██ ███████     ██   ██ ███████     ██   ██ ██   ██ ██   ██ ███████ ██████  ██ 
-                                                                                                                                 v${packageJson.version}
+                                                                                                                        
+
+This Website is a work in progress with a the goal to showcase future projects and archive important events. 
+v${packageJson.version}
 
 Type 'help' to see list of available commands.
 `,
