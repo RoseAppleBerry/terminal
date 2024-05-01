@@ -78,48 +78,18 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
 
     return `Opening mailto:${packageJson.author.email}...`;
   },
-  donate: () => {
-    window.open(packageJson.funding.url, '_blank');
-
-    return 'Opening donation url...';
-  },
-  weather: async (args: string[]) => {
-    const city = args.join('+');
-
-    if (!city) {
-      return 'Usage: weather [city]. Example: weather Brussels';
-    }
-
-    const weather = await fetch(`https://wttr.in/${city}?ATm`);
-
-    return weather.text();
-  },
+  
   exit: () => {
     return 'Please close the tab to exit.';
   },
-  curl: async (args: string[]) => {
-    if (args.length === 0) {
-      return 'curl: no URL provided';
-    }
 
-    const url = args[0];
-
-    try {
-      const response = await fetch(url);
-      const data = await response.text();
-
-      return data;
-    } catch (error) {
-      return `curl: could not fetch URL ${url}. Details: ${error}`;
-    }
-  },
   banner: () => `
-███╗   ███╗██╗  ██╗████████╗████████╗███████╗██████╗
-████╗ ████║██║  ██║╚══██╔══╝╚══██╔══╝╚════██║╚════██╗
-██╔████╔██║███████║   ██║      ██║       ██╔╝ █████╔╝
-██║╚██╔╝██║╚════██║   ██║      ██║      ██╔╝ ██╔═══╝
-██║ ╚═╝ ██║     ██║   ██║      ██║      ██║  ███████╗
-╚═╝     ╚═╝     ╚═╝   ╚═╝      ╚═╝      ╚═╝  ╚══════╝ v${packageJson.version}
+███    ███  ██████   █████  ████████  █████  ███████      █████  ██          ██   ██ ██   ██  █████  ██      ██████  ██ 
+████  ████ ██    ██ ██   ██    ██    ██   ██    ███      ██   ██ ██          ██  ██  ██   ██ ██   ██ ██      ██   ██ ██ 
+██ ████ ██ ██    ██ ███████    ██    ███████   ███       ███████ ██          █████   ███████ ███████ ██      ██   ██ ██ 
+██  ██  ██ ██    ██ ██   ██    ██    ██   ██  ███        ██   ██ ██          ██  ██  ██   ██ ██   ██ ██      ██   ██ ██ 
+██      ██  ██████  ██   ██    ██    ██   ██ ███████     ██   ██ ███████     ██   ██ ██   ██ ██   ██ ███████ ██████  ██ 
+                                                                                                                                 v${packageJson.version}
 
 Type 'help' to see list of available commands.
 `,
