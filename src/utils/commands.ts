@@ -10,15 +10,7 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
   hostname: () => hostname,
   whoami: () => 'guest',
   date: () => new Date().toLocaleString(),
-  vi: () => `why use vi? try 'emacs'`,
-  vim: () => `why use vim? try 'emacs'`,
-  emacs: () => `why use emacs? try 'vim'`,
   echo: (args: string[]) => args.join(' '),
-  sudo: (args: string[]) => {
-    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
-
-    return `Permission denied: unable to run the command '${args[0]}' as root.`;
-  },
   theme: (args: string[]) => {
     const usage = `Usage: theme [args].
     [args]:
@@ -63,11 +55,6 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
       }
     }
   },
-  repo: () => {
-    window.open(packageJson.repository.url, '_blank');
-
-    return 'Opening repository...';
-  },
   clear: () => {
     history.set([]);
 
@@ -79,9 +66,31 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
     return `Opening mailto:${packageJson.author.email}...`;
   },
   
+  Twitter: (args: string[]) => {
+    window.open('https://twitter.com/Moataz_AlKhaldi');
+
+    return `Feel free to follow me on Twitter!`;
+  },
+  Linkedin: (args: string[]) => {
+    window.open('https://www.linkedin.com/in/moataz-al-khaldi-3a7846213/');
+
+    return `Feel free to connect with me on Linkedin!`;
+  },
+  Archive: (args: string[]) => {
+    window.open(' ');
+
+    return `WIP`;
+  },
+  Projects: (args: string[]) => {
+    window.open(' ');
+
+    return `WIP`;
+  },
   exit: () => {
     return 'Please close the tab to exit.';
   },
+
+
 
   banner: () => `
 ███    ███  ██████   █████  ████████  █████  ███████      █████  ██          ██   ██ ██   ██  █████  ██      ██████  ██ 
