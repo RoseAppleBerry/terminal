@@ -66,22 +66,22 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
     return `Opening mailto:${packageJson.author.email}...`;
   },
   
-  Twitter: (args: string[]) => {
+  twitter: (args: string[]) => {
     window.open('https://twitter.com/Moataz_AlKhaldi');
 
     return `Feel free to follow me on Twitter!`;
   },
-  Linkedin: (args: string[]) => {
+  linkedin: (args: string[]) => {
     window.open('https://www.linkedin.com/in/moataz-al-khaldi-3a7846213/');
 
     return `Feel free to connect with me on Linkedin!`;
   },
-  Archive: (args: string[]) => {
+  archive: (args: string[]) => {
     window.open(' ');
 
     return `WIP`;
   },
-  Projects: (args: string[]) => {
+  projects: (args: string[]) => {
     window.open(' ');
 
     return `WIP`;
