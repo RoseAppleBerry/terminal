@@ -81,8 +81,55 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
 
     return `WIP`;
   },
-  projects: (args: string[]) => {
-    window.open(' ');
+  const projects = [
+    { name: "Simple Motion detection using arduino", description: "This simple motion detection project showcases arduino's ability to interface with a motion detection module and applies to activite an output module", link: 'https://pastebin.com/ZsiYH3TS' },
+    { name: 'project2', description: 'This is project 2', link: 'http://link-to-project2.com' },
+    { name: 'project3', description: 'This is project 3', link: 'http://link-to-project3.com' },
+    // more projects...
+  ];
+  const project = (args: string[]) => {
+    const helpText = `project: project [args].
+    [args]:
+      ls: list all available projects
+      show: shows the project details
+  
+    [Examples]:
+      project ls
+      project show [project-name]
+    `;
+  
+    if (args.length === 0) {
+      return helpText;
+    }
+  
+    switch (args[0]) {
+      case 'ls': {
+        let result = projects.map((t) => t.name.toLowerCase()).join(', ');
+        result += `You can preview all these projects here: ${packageJson.repository.url}/tree/master/docs/project`;
+  
+        return result;
+      }
+  
+      case 'show': {
+        if (args.length !== 2) {
+          return helpText;
+        }
+  
+        const selectedProjectName = args[1];
+        const selectedProject = projects.find((t) => t.name.toLowerCase() === selectedProjectName);
+  
+        if (!selectedProject) {
+          return `Project '${selectedProjectName}' not found. Try 'project ls' to see all available projects.`;
+        }
+  
+        return `Project: ${selectedProject.name}\nDescription: ${selectedProject.description}\nLink: ${selectedProject.link}`;
+      }
+  
+      default: {
+        return helpText;
+      }
+    }
+  };
 
     return `WIP`;
   },
