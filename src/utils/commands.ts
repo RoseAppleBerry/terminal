@@ -86,7 +86,8 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
     { name: 'project2', description: 'This is project 2', link: 'http://link-to-project2.com' },
     { name: 'project3', description: 'This is project 3', link: 'http://link-to-project3.com' },
     // more projects...
-  ];
+  ],
+
   const project = (args: string[]) => {
     const helpText = `project: project [args].
     [args]:
@@ -131,15 +132,14 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
     }
   };
 
-    return `WIP`;
+    exit: () => {
+      window.close();
+    }
   },
-  exit: () => {
-    window.close();
-  },
 
+{
 
-
-  banner: () => `
+banner: () => `
 ███    ███  ██████   █████  ████████  █████  ███████      █████  ██          ██   ██ ██   ██  █████  ██      ██████  ██ 
 ████  ████ ██    ██ ██   ██    ██    ██   ██    ███      ██   ██ ██          ██  ██  ██   ██ ██   ██ ██      ██   ██ ██ 
 ██ ████ ██ ██    ██ ███████    ██    ███████   ███       ███████ ██          █████   ███████ ███████ ██      ██   ██ ██ 
@@ -151,5 +151,5 @@ This Website is a work in progress with a the goal to showcase future projects a
 v${packageJson.version}
 
 Type 'help' to see list of available commands.
-`,
+`
 };
